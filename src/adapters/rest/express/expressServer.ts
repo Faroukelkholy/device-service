@@ -1,13 +1,20 @@
 import express from 'express';
+import pingFactory from '../controllers/ping'
 
+export default class expressServer {
 
-export class expressServer {
-
-    private app:express
+    private app: express
     constructor() {
         this.app = express()
     }
-    public initServer() {
 
+    public startServer(port): void {
+        this.app.listen(Number(port));
     }
+
+    public initControllers(): void {
+        const pingController = pingFactory();
+        this.app.get('/ping',pingController);
+    }
+
 }

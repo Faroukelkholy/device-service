@@ -4,6 +4,8 @@
   "description": "",
   "main": "build/index.js",
   "scripts": {
+    "start": "tsc --pretty && node build/index.js",
+    "build": "npx tsc",
     "test": "npx jest"
   },
   "repository": {
@@ -18,6 +20,7 @@
   "homepage": "https://github.com/Faroukelkholy/kanunu_challenge#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "localenv": "^0.2.2",
     "uuid": "^8.2.0"
   },
   "devDependencies": {
