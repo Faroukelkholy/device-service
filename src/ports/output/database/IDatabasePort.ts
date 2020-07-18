@@ -1,5 +1,6 @@
-import { IDeviceCruds } from "./IDeviceCruds";
+import  IDeviceRepoitory  from "./IDeviceRepoitory";
 
-export interface IDatabasePort {
-    DeviceCruds: IDeviceCruds;
+export default interface IDatabasePort {
+    InitAdapter(): Promise<void>;
+    DeviceRepoitory: IDeviceRepoitory;
 }

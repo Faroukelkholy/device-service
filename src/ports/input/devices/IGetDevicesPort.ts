@@ -1,4 +1,4 @@
 import Device from '../../../domain/entity/device';
-export interface IGetDevicesPort {
+export default interface IGetDevicesPort {
     getDevices(): Device[]
 }

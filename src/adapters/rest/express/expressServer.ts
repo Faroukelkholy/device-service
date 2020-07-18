@@ -9,6 +9,7 @@ export default class expressServer {
     }
 
     public startServer(port): void {
+        console.log("server is starting on port:",port);
         this.app.listen(Number(port));
     }
 

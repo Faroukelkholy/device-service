@@ -21,6 +21,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "localenv": "^0.2.2",
+    "mongoose": "^5.9.25",
     "uuid": "^8.2.0"
   },
   "devDependencies": {

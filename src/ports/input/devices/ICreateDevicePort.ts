@@ -1,4 +1,4 @@
 import Device from '../../../domain/entity/device';
-export interface ICreateDevicePort {
+export default interface ICreateDevicePort {
     createDevice(device: Device): void
 }
