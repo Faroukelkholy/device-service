@@ -1,9 +1,9 @@
 import config from '../../config';
+import IDatabasePort from '../../ports/output/database/IDatabasePort';
 import MongoDriver from './mongo/mongoDriver'
 export default class DatabaseAdapter {
     private static instance: DatabaseAdapter;
-    // public adapter: IDatabasePort; //TODO
-    public adapter: any;
+    public adapter: IDatabasePort;
 
 
     private constructor() { }

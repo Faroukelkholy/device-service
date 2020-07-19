@@ -1,8 +1,8 @@
-import IDeviceRepoitory from '../../../ports/output/database/IDeviceRepoitory';
+import IDeviceRepository from '../../../ports/output/database/IDeviceRepository';
 import Device from '../../../domain/entity/device';
 import DeviceModel from '../models/device';
 
-export default class DeviceRepoitory implements IDeviceRepoitory {
+export default class DeviceRepository implements IDeviceRepository {
 
     // constructor(private db:any){} //TODO
     constructor() { }
@@ -13,7 +13,7 @@ export default class DeviceRepoitory implements IDeviceRepoitory {
         return Devices;
     }
 
-    async getDevice(id: string): Promise<Device> {
+    async getDeviceById(id: string): Promise<Device> {
         const Device: Device = await DeviceModel.find({ _id: id });
         return Device;
     }

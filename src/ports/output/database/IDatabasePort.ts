@@ -1,6 +1,6 @@
-import  IDeviceRepoitory  from "./IDeviceRepoitory";
+import  IDeviceRepository  from "./IDeviceRepository";
 
 export default interface IDatabasePort {
     InitAdapter(): Promise<void>;
-    DeviceRepoitory: IDeviceRepoitory;
+    DeviceRepoitory: IDeviceRepository;
 }

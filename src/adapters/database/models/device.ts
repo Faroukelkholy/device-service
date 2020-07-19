@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-const mongoose = require("mongoose");
+import mongoose  from 'mongoose'
 const Schema = mongoose.Schema;
 
 const deviceSchema = new Schema({

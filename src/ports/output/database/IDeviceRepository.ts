@@ -1,6 +1,6 @@
 import Device from '../../../domain/entity/device';
-export default interface IDeviceRepoitory {
+export default interface IDeviceRepository {
     getDevices(): Promise<Device[]>
-    getDevice(id: string): Promise<Device>
+    getDeviceById(id: string): Promise<Device>
     createDevice(device: Device): void
 }

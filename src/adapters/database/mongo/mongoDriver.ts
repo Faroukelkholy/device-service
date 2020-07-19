@@ -1,14 +1,14 @@
 import IDatabasePort from '../../../ports/output/database/IDatabasePort';
-import IDeviceRepoitory from '../../../ports/output/database/IDeviceRepoitory';
+import IDeviceRepoitory from '../../../ports/output/database/IDeviceRepository';
 import DeviceRepository from './deviceRepository'
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 
 
 export default class MongoDriver implements IDatabasePort {
 
     public DeviceRepoitory: IDeviceRepoitory
 
-    constructor(private dbHost: string, private dbPort: string, private dbName: string) { 
+    constructor(private dbHost: string, private dbPort: string, private dbName: string) {
         this.DeviceRepoitory = new DeviceRepository();
     }
 
@@ -17,7 +17,10 @@ export default class MongoDriver implements IDatabasePort {
         await this.connect({ dbHost: this.dbHost, dbPort: this.dbPort, dbName: this.dbName });
     }
 
-    private async connect(mongoSettings):Promise<any> {
+    public disconnect() {
+        mongoose.connection.close();
+    }
+    private async connect(mongoSettings): Promise<any> {
         console.log(`creating Connection to [ mongodb://${mongoSettings.dbHost}:${mongoSettings.dbPort}/${mongoSettings.dbName} ]`);
         mongoose.set('useUnifiedTopology', true);
         return mongoose.connect(`mongodb://${mongoSettings.dbHost}:${mongoSettings.dbPort}/${mongoSettings.dbName}`, { useNewUrlParser: true });
@@ -30,6 +33,8 @@ export default class MongoDriver implements IDatabasePort {
             });
         }
     }
+
+
 
 }
 
