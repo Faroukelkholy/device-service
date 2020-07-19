@@ -1,0 +1,21 @@
+version: '3'
+services:
+   device:
+    container_name: device
+    restart: always
+    build: 
+      dockerfile: DockerFile
+      context: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - './:/home/device'
+      - /home/device/node_modules/
+    depends_on:
+      - mongo
+   mongo:
+    container_name: mongo
+    restart: always
+    image: mongo:4
+    # environment:
+    #     - MONGO_INITDB_DATABASE=kanunu
