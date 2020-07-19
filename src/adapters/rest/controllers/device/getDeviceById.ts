@@ -11,7 +11,7 @@ export default function getDeviceByIdFactory(getDeviceByIdUseCase: IGetDeviceByP
                 res.status(400).json(restError)
                 return;
             }
-            
+
             const device = await getDeviceByIdUseCase.getDeviceById(req.params.id);
             if (!device) {
                 const errorMessage = "device not found";
@@ -25,7 +25,7 @@ export default function getDeviceByIdFactory(getDeviceByIdUseCase: IGetDeviceByP
             }
 
         } catch (err) {
-            console.log("err :", err);
+            console.log("getDeviceById controller err :", err);
             const errorMessage = "server could not process request";
             const restError = RestError(errorMessage);
             res.status(500).json(restError)

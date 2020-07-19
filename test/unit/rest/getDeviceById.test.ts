@@ -9,7 +9,7 @@ jest.mock("../../../src/adapters/database/mongo/deviceRepository");
 
 const deviceRepository = new DeviceRepository();
 const useCase = new GetDeviceByIdUseCase(deviceRepository);
-const geDeviceByIdController = getDeviceByIdFactory(useCase);
+const getDeviceByIdController = getDeviceByIdFactory(useCase);
 
 let req, res, next;
 const deviceId = "e7e69f70-a0c8-4d81-9ef7-6c95f512061b"
@@ -22,17 +22,17 @@ beforeEach(() => {
 
 describe("getDeviceById Controller", () => {
     it("should be a function", () => {
-        expect(typeof geDeviceByIdController).toBe("function");
+        expect(typeof getDeviceByIdController).toBe("function");
     });
 
     it("should call deviceRepository.getDeviceById", async () => {
-        await geDeviceByIdController(req, res, next);
+        await getDeviceByIdController(req, res, next);
         expect(deviceRepository.getDeviceById).toBeCalledWith(deviceId);
     })
 
-    it("should return 200 response code and json  response", async () => {
-        deviceRepository.getDeviceById.mockReturnValue([allDevices[0]]);
-        await geDeviceByIdController(req, res, next);
+    it("should return 200 response code and json response", async () => {
+        deviceRepository.getDeviceById.mockReturnValue(allDevices[0]);
+        await getDeviceByIdController(req, res, next);
         expect(res.statusCode).toBe(200);
         expect(res._isEndCalled).toBeTruthy();
         let jsonRes = res._getJSONData();
@@ -42,7 +42,7 @@ describe("getDeviceById Controller", () => {
     it("should return 400 response code for invalid UUID", async () => {
         req.params.id = '123'
         const errorMessage = "device id is not a valid uuid";
-        await geDeviceByIdController(req, res, next);
+        await getDeviceByIdController(req, res, next);
         expect(res.statusCode).toBe(400);
         expect(res._isEndCalled).toBeTruthy();
         let jsonRes = res._getJSONData();
@@ -56,7 +56,7 @@ describe("getDeviceById Controller", () => {
         const error = new Error("could not connect to database");
         const rejectedPromise = Promise.reject(error);
         deviceRepository.getDeviceById.mockReturnValue(rejectedPromise);
-        await geDeviceByIdController(req, res, next);
+        await getDeviceByIdController(req, res, next);
         let jsonRes = res._getJSONData();
         expect(jsonRes.status).toStrictEqual("error");
         expect(jsonRes.message).toStrictEqual(errorMessage);

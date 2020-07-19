@@ -10,7 +10,7 @@ export default function getDevicesFactory(getDevicesUseCase: IGetDevicesPort) {
                 data: devices
             });
         } catch (err) {
-            console.log("err :", err);
+            console.log("getDevices controller err :", err);
             const errorMessage = "server could not process request";
             const restError = RestError(errorMessage);
             res.status(500).json(restError)

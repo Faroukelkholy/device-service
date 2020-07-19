@@ -13,13 +13,13 @@ export default class DeviceRepository implements IDeviceRepository {
     }
 
     async getDeviceById(id: string): Promise<Device> {
-        const Device: Device = await DeviceModel.find({ _id: id });
-        return Device;
+        const device: Device = await DeviceModel.find({ _id: id });
+        return device[0];
     }
 
-    async createDevice(device: Device): Promise<void> {
+    async createDevice(device: Device): Promise<Device> {
         const deviceDoc = new DeviceModel(device);
-        await deviceDoc.save();
+        return await deviceDoc.save();
     }
 
     async deleteAllDevices() {

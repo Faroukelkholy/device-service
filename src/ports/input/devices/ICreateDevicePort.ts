@@ -1,4 +1,4 @@
 import Device from '../../../domain/entity/device';
 export default interface ICreateDevicePort {
-    createDevice(device: Device): void
+    createDevice(device: Device): Promise<Device>
 }

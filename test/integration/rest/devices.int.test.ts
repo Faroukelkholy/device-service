@@ -2,6 +2,7 @@ import request from 'supertest'
 import ExpressServer from '../../../src/adapters/rest/express/expressServer';
 import mongoose from 'mongoose'
 import allDevices from '../../mock-data/all-devices.json'
+import newDevice from '../../mock-data/new-device.json'
 const endpointUrl = "/devices/";
 
 
@@ -33,6 +34,27 @@ describe(endpointUrl, () => {
     expect(response.status).toBe(404);
     expect(response.body.status).toStrictEqual("error");
   })
+
+  it("POST " + endpointUrl, async () => {
+    const response = await request(expressServer.app)
+      .post(endpointUrl).set('Accept', 'application/json').set('Content-Type', 'application/json')
+      .send(newDevice)
+     
+    expect(response.status).toBe(201);
+    expect(response.body.status).toStrictEqual("success");
+    expect(response.body.data._id).toBeDefined();
+  })
+
+  it(`POST ${endpointUrl} with missing name param`, async () => {
+    delete newDevice.name;
+    const response = await request(expressServer.app)
+      .post(endpointUrl)
+      .send(newDevice).type('json').set('Accept', 'application/json').set('Content-Type', 'application/json')
+     
+    expect(response.status).toBe(400);
+    expect(response.body.status).toStrictEqual("error");
+  })
+
 
 })
 
