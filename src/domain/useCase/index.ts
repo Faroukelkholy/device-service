@@ -2,6 +2,7 @@ import IDomainUseCasesPort from "../../ports/input/IDomainUseCasesPort";
 import IDatabasePort from "../../ports/output/database/IDatabasePort";
 import IDeviceUseCasesPort from "../../ports/input/devices/IDeviceUseCasesPort";
 import GetDevicesUseCase from "../useCase/getDevices";
+import getDeviceByIdUseCase from "./getDeviceById";
 
 export default class DomainUseCases implements IDomainUseCasesPort {
 
@@ -10,6 +11,7 @@ export default class DomainUseCases implements IDomainUseCasesPort {
     }
 
     public deviceUseCases: IDeviceUseCasesPort = {
-        getDevicesUseCase: new GetDevicesUseCase(this.databasePort.DeviceRepoitory)
+        getDevicesUseCase: new GetDevicesUseCase(this.databasePort.DeviceRepoitory),
+        getDeviceByIdUseCase: new getDeviceByIdUseCase(this.databasePort.DeviceRepoitory)
     }
 }

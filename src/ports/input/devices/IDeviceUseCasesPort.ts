@@ -1,9 +1,9 @@
 import IGetDevicesPort from './IGetDevicesPort';
-// import IGetDevicePort from "./IGetDevicePort";
+import IGetDeviceByPort from "./IGetDeviceByIdPort";
 // import ICreateDevicePort from './ICreateDevicePort';
 
 export default interface IDeviceUseCasesPort {
     getDevicesUseCase : IGetDevicesPort
-    // getDevice: IGetDevicePort
+    getDeviceByIdUseCase: IGetDeviceByPort
     // createDevice: ICreateDevicePort
 }

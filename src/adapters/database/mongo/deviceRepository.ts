@@ -4,7 +4,6 @@ import DeviceModel from '../models/device';
 
 export default class DeviceRepository implements IDeviceRepository {
 
-    // constructor(private db:any){} //TODO
     constructor() { }
 
 

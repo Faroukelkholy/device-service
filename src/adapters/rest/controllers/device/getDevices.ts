@@ -1,5 +1,6 @@
 import IGetDevicesPort from '../../../../ports/input/devices/IGetDevicesPort';
 import RestError from '../../../../utils/restError'
+
 export default function getDevicesFactory(getDevicesUseCase: IGetDevicesPort) {
     return async function getDevices(req: any, res: any, next: any) {
         try {
