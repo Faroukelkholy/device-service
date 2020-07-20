@@ -20,7 +20,7 @@ export default class DeviceControllers {
         const getDeviceController = getDeviceByIdFactory(this.deviceUseCases.getDeviceByIdUseCase)
         const createDeviceController = createDeviceFactory(this.deviceUseCases.createDeviceUseCase)
         this.app.get('/devices', getDevicesController)
-        this.app.get('/devices/:id', getDeviceController)
+        this.app.get('/devices/:deviceId', getDeviceController)
         this.app.post('/devices', createDeviceController)
     }
 

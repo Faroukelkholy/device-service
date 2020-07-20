@@ -4,11 +4,13 @@ const Schema = mongoose.Schema;
 var validate = require('uuid-validate');
 
 const deviceSchema = new Schema({
-    _id: { type: String, default: uuidv4 },
+    deviceId: { type: String, unique: true, required: true, default: uuidv4 },
     name: { type: String, required: true },
     firmwareVersion: String,
     firmwareRevision: String,
 });
+
+
 
 
 

@@ -37,7 +37,7 @@ describe("createDevice Controller", () => {
         expect(res.statusCode).toBe(201);
         expect(res._isEndCalled).toBeTruthy();
         let jsonRes = res._getJSONData();
-        expect(jsonRes.data).toStrictEqual({ _id: allDevices[0]._id });
+        expect(jsonRes.data).toStrictEqual({ deviceId: allDevices[0].deviceId });
     })
 
     it("should handle errors", async () => {

@@ -8,12 +8,12 @@ export default class DeviceRepository implements IDeviceRepository {
 
 
     async getDevices(): Promise<Device[]> {
-        const Devices: Device[] = await DeviceModel.find({});
+        const Devices: Device[] = await DeviceModel.find({},{_id:0});
         return Devices;
     }
 
-    async getDeviceById(id: string): Promise<Device> {
-        const device: Device = await DeviceModel.find({ _id: id });
+    async getDeviceById(deviceID: string): Promise<Device> {
+        const device: Device = await DeviceModel.find({ deviceId: deviceID },{_id:0});
         return device[0];
     }
 

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 export default class Device {
-    public _id?: string
+    public deviceId?: string
     public name: string
     public firmwareVersion: string
     public firmwareRevision: string

@@ -8,9 +8,9 @@ export default class getDeviceByIdUseCase implements IGetDeviceByIdPort {
     constructor(private deviceRepository: IDeviceRepository) {
     }
 
-    public async getDeviceById(id: string): Promise<Device> {
+    public async getDeviceById(deviceId: string): Promise<Device> {
         try {
-            return await this.deviceRepository.getDeviceById(id)
+            return await this.deviceRepository.getDeviceById(deviceId)
         } catch (err) {
             return Promise.reject(err)
         }

@@ -15,7 +15,7 @@ export default function createDeviceFactory(CreateDeviceUseCase: ICreateDevicePo
 
             res.status(201).json({
                 status: "success",
-                data: { _id: deviceInserted._id }
+                data: { deviceId: deviceInserted.deviceId }
             });
         } catch (err) {
             console.log("createDevice controller err :", err);

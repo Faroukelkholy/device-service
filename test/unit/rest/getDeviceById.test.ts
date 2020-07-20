@@ -17,7 +17,7 @@ beforeEach(() => {
     req = httpMocks.createRequest();
     res = httpMocks.createResponse();
     next = jest.fn();
-    req.params.id = deviceId
+    req.params.deviceId = deviceId
 })
 
 describe("getDeviceById Controller", () => {
@@ -40,8 +40,8 @@ describe("getDeviceById Controller", () => {
     })
 
     it("should return 400 response code for invalid UUID", async () => {
-        req.params.id = '123'
-        const errorMessage = "device id is not a valid uuid";
+        req.params.deviceId = '123'
+        const errorMessage = "deviceId is not a valid uuid";
         await getDeviceByIdController(req, res, next);
         expect(res.statusCode).toBe(400);
         expect(res._isEndCalled).toBeTruthy();
@@ -51,7 +51,7 @@ describe("getDeviceById Controller", () => {
     })
 
     it("should handle errors", async () => {
-        req.params.id = 'e7e69f70-a0c8-4d81-9ef7-6c95f512061b'
+        req.params.deviceId = 'e7e69f70-a0c8-4d81-9ef7-6c95f512061b'
         const errorMessage = "server could not process request";
         const error = new Error("could not connect to database");
         const rejectedPromise = Promise.reject(error);

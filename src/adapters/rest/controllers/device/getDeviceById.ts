@@ -5,14 +5,14 @@ import validate from 'uuid-validate';
 export default function getDeviceByIdFactory(getDeviceByIdUseCase: IGetDeviceByPort) {
     return async function getDeviceById(req: any, res: any, next: any) {
         try {
-            if (!validate(req.params.id)) {
-                const errorMessage = "device id is not a valid uuid";
+            if (!validate(req.params.deviceId)) {
+                const errorMessage = "deviceId is not a valid uuid";
                 const restError = RestError(errorMessage);
                 res.status(400).json(restError)
                 return;
             }
 
-            const device = await getDeviceByIdUseCase.getDeviceById(req.params.id);
+            const device = await getDeviceByIdUseCase.getDeviceById(req.params.deviceId);
             if (!device) {
                 const errorMessage = "device not found";
                 const restError = RestError(errorMessage);

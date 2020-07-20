@@ -21,14 +21,14 @@ describe(endpointUrl, () => {
     expect(response.body.data).toBeDefined();
   })
 
-  it("GET " + endpointUrl + ":id", async () => {
+  it("GET " + endpointUrl + ":deviceId", async () => {
     const response = await request(expressServer.app)
-      .get(endpointUrl + allDevices[0]._id)
+      .get(endpointUrl + allDevices[0].deviceId)
     expect(response.statusCode).toBe(200);
     expect(response.body.data.name).toStrictEqual(allDevices[0].name);
   })
 
-  it("GET " + endpointUrl + ":id that does not exist", async () => {
+  it("GET " + endpointUrl + ":deviceId that does not exist", async () => {
     const response = await request(expressServer.app)
       .get(endpointUrl + 'e7e69f70-a0c8-4d81-9ef7-6c95f512061b');
     expect(response.status).toBe(404);
@@ -42,7 +42,7 @@ describe(endpointUrl, () => {
      
     expect(response.status).toBe(201);
     expect(response.body.status).toStrictEqual("success");
-    expect(response.body.data._id).toBeDefined();
+    expect(response.body.data.deviceId).toBeDefined();
   })
 
   it(`POST ${endpointUrl} with missing name param`, async () => {
