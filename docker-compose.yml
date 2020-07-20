@@ -4,7 +4,7 @@ services:
     container_name: device
     restart: always
     build: 
-      dockerfile: DockerFile
+      dockerfile: Dockerfile
       context: .
     ports:
       - "8080:8080"
@@ -12,10 +12,14 @@ services:
       - './:/home/device'
       - /home/device/node_modules/
     depends_on:
-      - mongo
-   mongo:
-    container_name: mongo
+      - mongoDevice
+   mongoDevice:
+    container_name: mongoDevice
     restart: always
     image: mongo:4
-    # environment:
-    #     - MONGO_INITDB_DATABASE=kanunu
+    environment:
+      - MONGO_INITDB_DATABASE=katulu
+   mongo-seed:
+    build: ./src/adapters/database/mongo/
+    links:
+      - mongoDevice

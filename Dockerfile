@@ -4,7 +4,9 @@ WORKDIR /home/device
 
 COPY package*.json ./
 
+
 RUN npm install 
+
 
 COPY . .
 

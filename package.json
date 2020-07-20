@@ -1,5 +1,5 @@
 {
-  "name": "kanunu_challenge",
+  "name": "katulu_challenge",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Faroukelkholy/kanunu_challenge.git"
+    "url": "git+https://github.com/Faroukelkholy/katulu_challenge.git"
   },
   "author": "Farouk elkholy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Faroukelkholy/kanunu_challenge/issues"
+    "url": "https://github.com/Faroukelkholy/katulu_challenge/issues"
   },
-  "homepage": "https://github.com/Faroukelkholy/kanunu_challenge#readme",
+  "homepage": "https://github.com/Faroukelkholy/katulu_challenge#readme",
   "dependencies": {
     "express": "^4.17.1",
     "localenv": "^0.2.2",
