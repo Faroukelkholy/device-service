@@ -1,5 +1,5 @@
 {
-  "name": "katulu_challenge",
+  "name": "device_management",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Faroukelkholy/katulu_challenge.git"
+    "url": "git+https://github.com/Faroukelkholy/device_management.git"
   },
   "author": "Farouk elkholy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Faroukelkholy/katulu_challenge/issues"
+    "url": "https://github.com/Faroukelkholy/device_management/issues"
   },
-  "homepage": "https://github.com/Faroukelkholy/katulu_challenge#readme",
+  "homepage": "https://github.com/Faroukelkholy/device_management#readme",
   "dependencies": {
     "express": "^4.17.1",
     "localenv": "^0.2.2",

@@ -18,7 +18,7 @@ services:
     restart: always
     image: mongo:4
     environment:
-      - MONGO_INITDB_DATABASE=katulu
+      - MONGO_INITDB_DATABASE=device_db
    mongo-seed:
     build: ./src/adapters/database/mongo/
     links:

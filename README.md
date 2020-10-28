@@ -1,4 +1,4 @@
-# katulu_challenge
+# device_management
 
 
 ## Table of contents
