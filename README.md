@@ -18,8 +18,10 @@
 
 Project is created with:
 
+* Typescript
 * Node
 * Express
+* Express-graphql
 * Graphql
 * Mongo
 * Docker
