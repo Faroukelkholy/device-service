@@ -1,0 +1,68 @@
+###Navigate to localhost:8070/graphql, Start to play around with these examples
+
+#####Introspection Example 
+{
+  #Introspection all types available on the graph server, step1 
+  __schema {
+    types {
+      name
+    }
+  }
+
+  #Introspection Device type, its description and fields, step2
+  __type(name: "Device") {
+    name
+    description
+    kind
+    fields {
+      name
+      type {
+        name
+        kind
+      }
+    }
+  }
+}
+####
+
+#####Query Example
+{
+  devices {
+    deviceId
+    name
+  }
+  device(deviceId: "a3eedb89-a923-4041-8f49-7e80d541486e") {
+    name
+  }
+  # Trying out alias
+  deviceDifferent: device(deviceId: "85214138-eb63-48e0-9d5e-75335433e6de") {
+    name
+     # Trying out fragment
+    ...versionFields
+  }
+}
+
+#defining fragment on Device type
+fragment versionFields on Device {
+  firmwareVersion
+  firmwareRevision
+}
+####
+
+###Mutation example
+mutation CreateDeviceMutation($device:CreateDeviceInput) {
+  createDevice(device:$device){
+      name
+  }
+}
+
+#Variable
+{
+  "device": {
+    "name": "graphql test",
+    "firmwareRevision": "1.0.0",
+    "firmwareVersion": "1.0.0"
+  }
+}
+
+####

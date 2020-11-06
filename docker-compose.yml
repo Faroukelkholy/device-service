@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
       context: .
     ports:
-      - "8080:8080"
+      - "8070:8070"
     volumes:
       - './:/home/device'
       - /home/device/node_modules/
@@ -18,7 +18,7 @@ services:
     restart: always
     image: mongo:4
     environment:
-      - MONGO_INITDB_DATABASE=katulu
+      - MONGO_INITDB_DATABASE=device_db
    mongo-seed:
     build: ./src/adapters/database/mongo/
     links:

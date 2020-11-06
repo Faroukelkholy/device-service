@@ -1,11 +1,12 @@
-# katulu_challenge
+# device_management
 
 
 ## Table of contents
+
 * [Documentation](#Documentation)
 * [Technologies](#Technologies)
 * [Deployment](#Deployment)
-* [Example](#Example)
+* [Examples](#Examples)
 * [Testing](#Testing)
 
 
@@ -19,6 +20,7 @@ Project is created with:
 
 * Node
 * Express
+* Graphql
 * Mongo
 * Docker
 * Jest
@@ -31,15 +33,88 @@ Project is created with:
 $ docker-compose up -d
 ```
 
-## Example
+## Examples
 
-Application will be up and running on port 8080 and cruds available are:
+>Service will be up and running on port 8070:
 
-> curl http://localhost:8080/devices
-> curl http://localhost:8080/devices/99b297dd-cb11-4513-b3b2-f798af12a83f
-> curl -d '{"name": "curlTest","firmwareRevision": "0.1.0","firmwareVersion": "1.1.0"}' -H "Content-Type: application/json" -X POST http://localhost:8080/devices
+* Rest Api
 
-More details on endpoint specification in the doc folder.
+```
+$ curl http://localhost:8070/devices
+$ curl http://localhost:8070/devices/99b297dd-cb11-4513-b3b2-f798af12a83f
+$ curl -d '{"name": "curlTest","firmwareRevision": "0.1.0","firmwareVersion": "1.1.0"}' -H "Content-Type: application/json" -X POST http://localhost:8070/devices
+```
+* Graphql playground examples
+
+*Navigate to localhost:8070/graphql, Start to play around with these examples*
+```graphql
+#####Introspection Example 
+{
+  #Introspection all types available on the graph server, step1 
+  __schema {
+    types {
+      name
+    }
+  }
+
+  #Introspection Device type, its description and fields, step2
+  __type(name: "Device") {
+    name
+    description
+    kind
+    fields {
+      name
+      type {
+        name
+        kind
+      }
+    }
+  }
+}
+####
+
+#####Query Example
+{
+  devices {
+    deviceId
+    name
+  }
+  device(deviceId: "a3eedb89-a923-4041-8f49-7e80d541486e") {
+    name
+  }
+  # Trying out alias
+  deviceDifferent: device(deviceId: "85214138-eb63-48e0-9d5e-75335433e6de") {
+    name
+     # Trying out fragment
+    ...versionFields
+  }
+}
+
+#defining fragment on Device type
+fragment versionFields on Device {
+  firmwareVersion
+  firmwareRevision
+}
+####
+
+###Mutation example
+mutation CreateDeviceMutation($device:CreateDeviceInput) {
+  createDevice(device:$device){
+      name
+  }
+}
+
+#Variable
+{
+  "device": {
+    "name": "graphql test",
+    "firmwareRevision": "1.0.0",
+    "firmwareVersion": "1.0.0"
+  }
+}
+
+####
+```
 	
 ## Testing
 
@@ -47,7 +122,7 @@ More details on endpoint specification in the doc folder.
 > 2.excute the test cases
 
 ```
-$ docker exec -it device /bin/bash
+$ docker-compose exec device bash
 $ npm test
 ```
 

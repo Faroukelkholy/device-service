@@ -1,4 +1,4 @@
-import DatabaseAdapter from '../adapters/database';
+import DatabaseAdapter from '../adapters/database/database.singleton';
 import IDomainUseCasesPort from '../ports/input/IDomainUseCasesPort';
 import DomainUseCases from './useCase';
 

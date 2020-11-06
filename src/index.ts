@@ -1,10 +1,13 @@
-import config from './config';
-import restServer from './adapters/rest'
+//load configuration from .env file and accessed by the process global object. 
+import * as dotenv from "dotenv";
+dotenv.config();
 
+import ExpressSingleton from './adapters/express/express.singleton'
 
-
-const main = async () => {
-    restServer.startServer(config.HTTP_PORT);
+const main = async ()=>{
+    const expressInstace = await ExpressSingleton.getInstance()
+    expressInstace.adapter.startServer(process.env.HTTP_PORT);
+    
 }
 
 main();
