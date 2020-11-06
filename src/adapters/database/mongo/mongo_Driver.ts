@@ -1,6 +1,6 @@
 import IDatabasePort from '../../../ports/output/database/IDatabasePort';
 import IDeviceRepoitory from '../../../ports/output/database/IDeviceRepository';
-import DeviceRepository from './deviceRepository'
+import DeviceRepository from './device.repository'
 import mongoose from 'mongoose'
 
 

@@ -1,8 +1,8 @@
-import IGetDeviceByPort from '../../../../ports/input/devices/IGetDeviceByIdPort';
+import IGetDeviceByIdPort from '../../../../ports/input/devices/IGetDeviceByIdPort';
 import RestError from '../../../../utils/restError';
 import validate from 'uuid-validate';
 
-export default function getDeviceByIdFactory(getDeviceByIdUseCase: IGetDeviceByPort) {
+export default function getDeviceByIdFactory(getDeviceByIdUseCase: IGetDeviceByIdPort) {
     return async function getDeviceById(req: any, res: any, next: any) {
         try {
             if (!validate(req.params.deviceId)) {

@@ -1,0 +1,7 @@
+type Device {
+    deviceId: String
+    name: String
+    firmwareVersion : String
+    firmwareRevision : String
+}
+

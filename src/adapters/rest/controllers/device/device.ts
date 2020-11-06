@@ -1,5 +1,5 @@
 import express from 'express';
-import DomainUseCasesSingleton from '../../../../domain';
+import DomainUseCasesSingleton from '../../../../domain/dominUseCases.singleton';
 import IDeviceUseCasesPort from '../../../../ports/input/devices/IDeviceUseCasesPort';
 import createDeviceFactory from './createDevice';
 import getDeviceByIdFactory from './getDeviceById';
@@ -9,7 +9,7 @@ export default class DeviceControllers {
 
     private deviceUseCases: IDeviceUseCasesPort;
     constructor(private app: express) {
-
+        this.control();
     }
 
     public async control() {
