@@ -1,9 +1,9 @@
 import IDomainUseCasesPort from "../../ports/input/IDomainUseCasesPort";
 import IDatabasePort from "../../ports/output/database/IDatabasePort";
 import IDeviceUseCasesPort from "../../ports/input/devices/IDeviceUseCasesPort";
-import GetDevicesUseCase from "./getDevices";
-import GetDeviceByIdUseCase from "./getDeviceById";
-import CreateDeviceUseCase from "./createDevice";
+import GetDevicesUseCase from "./device/getDevices";
+import GetDeviceByIdUseCase from "./device/getDeviceById";
+import CreateDeviceUseCase from "./device/createDevice";
 
 export default class DomainUseCases implements IDomainUseCasesPort {
 

@@ -12,7 +12,9 @@
 
 ## Documentation
 
-> documentation resides at ./doc folder. It includes class diagram and rest api specification.  
+* Component Diagram
+
+ ![Component_Daigram](docs/Use_cases_component_diagram.png)
 
 ## Technologies
 
@@ -39,7 +41,7 @@ $ docker-compose up -d
 
 >Service will be up and running on port 8070:
 
-* Rest Api
+* Rest Endpoints
 
 ```
 $ curl http://localhost:8070/devices

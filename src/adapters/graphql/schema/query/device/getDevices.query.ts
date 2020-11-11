@@ -3,7 +3,7 @@ import {
 } from 'graphql';
 import IGetDevicesPort from '../../../../../ports/input/devices/IGetDevicesPort';
 
-import DeviceType  from '../../type/device.type';
+import DeviceType  from '../../types/device.type';
 
 import GraphQLField  from '../../interface.field';
 

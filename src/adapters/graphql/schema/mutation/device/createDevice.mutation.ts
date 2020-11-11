@@ -1,7 +1,7 @@
 
 
 
-import DeviceType, {device}  from '../../type/device.type';
+import DeviceType, {device}  from '../../types/device.type';
 
 import GraphQLField  from '../../interface.field';
 import ICreateDevicePort from '../../../../../ports/input/devices/ICreateDevicePort';

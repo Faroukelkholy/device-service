@@ -4,7 +4,7 @@ import {
 
 import IGetDeviceByIdPort from '../../../../../ports/input/devices/IGetDeviceByIdPort';
 
-import DeviceType  from '../../type/device.type';
+import DeviceType  from '../../types/device.type';
 
 import GraphQLField  from '../../interface.field';
 

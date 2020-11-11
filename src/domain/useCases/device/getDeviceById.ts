@@ -1,6 +1,6 @@
-import IGetDeviceByIdPort from '../../ports/input/devices/IGetDeviceByIdPort';
-import Device from '../entity/device';
-import IDeviceRepository from '../../ports/output/database/IDeviceRepository'
+import IGetDeviceByIdPort from '../../../ports/input/devices/IGetDeviceByIdPort';
+import Device from '../../entity/device';
+import IDeviceRepository from '../../../ports/output/database/IDeviceRepository'
 
 
 export default class getDeviceByIdUseCase implements IGetDeviceByIdPort {

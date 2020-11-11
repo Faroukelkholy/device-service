@@ -1,6 +1,6 @@
 import DatabaseAdapter from '../adapters/database/database.singleton';
 import IDomainUseCasesPort from '../ports/input/IDomainUseCasesPort';
-import DomainUseCases from './useCase';
+import DomainUseCases from './useCases';
 
 export default class DomainUseCasesSingleton {
     private static instance: DomainUseCasesSingleton;

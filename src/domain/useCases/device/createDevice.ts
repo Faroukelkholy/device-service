@@ -1,6 +1,6 @@
-import ICreateDevicePort from '../../ports/input/devices/ICreateDevicePort';
-import Device from '../entity/device';
-import IDeviceRepository from '../../ports/output/database/IDeviceRepository'
+import ICreateDevicePort from '../../../ports/input/devices/ICreateDevicePort';
+import Device from '../../entity/device';
+import IDeviceRepository from '../../../ports/output/database/IDeviceRepository'
 
 
 export default class CreateDeviceUseCase implements ICreateDevicePort {
